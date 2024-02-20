@@ -1,0 +1,12 @@
+{
+  "name": "dz2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "restaurant.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
