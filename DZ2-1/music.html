@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Музыкальная коллекция</title>
+    </head>
+
+    <body>
+        <div id="albums"></div>
+        <script>
+            const musicCollection = {
+                albums: [
+                    { title: "Hogtied Like a Rodeo", artist: "The White Buffalo", year: "2008" },
+                    { title: "Once Upon a Time in the West", artist: "The White Buffalo", year: "2012" },
+                    { title: "Shadows, Greys, and Evil Ways", artist: "The White Buffalo", year: "2013" },
+                    { title: "On the Widow's Walk", artist: "The White Buffalo", year: "2020" },
+                    { title: "Year of the Dark Horse", artist: "The White Buffalo", year: "2022" },
+                ],
+                [Symbol.iterator]: function () {
+                    let index = 0;
+                    const albums = this.albums;
+                    return {
+                        next: function () {
+                            return index < albums.length ? { value: albums[index++], done: false } : { done: true };
+                        }
+                    };
+                }
+            };
+
+            const albumsDiv = document.getElementById('albums');
+            for (const album of musicCollection) {
+                const albumInfo = document.createElement('p');
+                albumInfo.textContent = `${album.title} - ${album.artist} (${album.year})`;
+                albumsDiv.appendChild(albumInfo);
+            }
+        </script>
+    </body>
+
+</html>
